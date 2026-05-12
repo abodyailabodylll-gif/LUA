@@ -1,0 +1,54 @@
+-- [[ MALAK HACKS ]] --
+local Key = "MALAK-994-BOSS"
+local Site = "https://key-malak.vercel.app"
+
+local Gui = Instance.new("ScreenGui", game.CoreGui)
+local Main = Instance.new("Frame", Gui)
+Main.Size = UDim2.new(0, 300, 0, 200)
+Main.Position = UDim2.new(0.5, -150, 0.5, -100)
+Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Main.BorderSizePixel = 2
+Main.BorderColor3 = Color3.fromRGB(0, 255, 0)
+Main.Active = true
+Main.Draggable = true
+
+local T = Instance.new("TextLabel", Main)
+T.Text = "MALAK HACKS"
+T.Size = UDim2.new(1,0,0,40)
+T.TextColor3 = Color3.fromRGB(0,255,0)
+T.BackgroundTransparency = 1
+
+local In = Instance.new("TextBox", Main)
+In.Size = UDim2.new(0.8,0,0,40)
+In.Position = UDim2.new(0.1,0,0.3,0)
+In.PlaceholderText = "Enter Key..."
+In.BackgroundColor3 = Color3.fromRGB(30,30,30)
+In.TextColor3 = Color3.fromRGB(255,255,255)
+
+local V = Instance.new("TextButton", Main)
+V.Text = "VERIFY"
+V.Size = UDim2.new(0.8,0,0,40)
+V.Position = UDim2.new(0.1,0,0.55,0)
+V.BackgroundColor3 = Color3.fromRGB(0,180,0)
+
+local G = Instance.new("TextButton", Main)
+G.Text = "GET LINK"
+G.Size = UDim2.new(0.8,0,0,30)
+G.Position = UDim2.new(0.1,0,0.8,0)
+G.BackgroundColor3 = Color3.fromRGB(40,40,40)
+G.TextColor3 = Color3.fromRGB(0,255,0)
+
+G.MouseButton1Click:Connect(function() setclipboard(Site) end)
+
+V.MouseButton1Click:Connect(function()
+    if In.Text == Key then
+        Main:Destroy()
+        -- ميزات الهاك
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+    else
+        In.Text = ""
+        In.PlaceholderText = "WRONG!"
+    end
+end)
+
